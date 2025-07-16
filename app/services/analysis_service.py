@@ -1,5 +1,3 @@
-# app/services/analysis_service.py
-
 def compute_pronunciation_score(words: list, threshold: float = 0.85):
     if not words:
         return 0, []
@@ -10,7 +8,7 @@ def compute_pronunciation_score(words: list, threshold: float = 0.85):
 
     mispronounced_words = [
         {
-            "word": w["text"],   # <-- FIXED HERE
+            "word": w["text"],   
             "start": round(w["start"] / 1000, 3),
             "confidence": w["confidence"]
         }

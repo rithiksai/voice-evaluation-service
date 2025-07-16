@@ -1,14 +1,3 @@
-"""
-AssemblyAI async helper – upload, request, poll, and return the
-final transcript JSON (includes `text`, `words`, `id`, etc.).
-
-Reads your AssemblyAI key from the environment:
-    ASSEMBLY_KEY=sk_live_...
-
-Install deps:
-    pip install httpx python-dotenv
-"""
-
 import asyncio
 import os
 from typing import AsyncGenerator
@@ -17,12 +6,12 @@ load_dotenv()  # Ensure .env vars are loaded
 
 import httpx
 
-# ------------------------------------------------------------------
+
 # 1 – Config / constants
-# ------------------------------------------------------------------
+
 AUDIO_CHUNK = 5_242_880                # 5 MB per chunk
 BASE_URL    = "https://api.assemblyai.com/v2"
-API_KEY     = os.getenv("ASSEMBLY_KEY")  # load_dotenv() should run in main.py
+API_KEY     = os.getenv("ASSEMBLY_KEY")  
 
 if not API_KEY:
     raise RuntimeError(
@@ -33,9 +22,7 @@ if not API_KEY:
 HEADERS = {"authorization": API_KEY}
 
 
-# ------------------------------------------------------------------
-# 2 – Internal helpers
-# ------------------------------------------------------------------
+
 async def _byte_stream(data: bytes) -> AsyncGenerator[bytes, None]:
     """Yield the audio bytes in 5 MB chunks so httpx can stream them."""
     for i in range(0, len(data), AUDIO_CHUNK):
