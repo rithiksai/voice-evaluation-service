@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "68ab3e9f-1bae-4eaa-b0eb-29a65e5a3ae2",
+		"name": "Voice Evaluation Microservice",
+		"description": "Postman collection for testing the /transcribe endpoint of the Voice Evaluation Microservice.\n\nMade with love by Rithik Sai Motupalli - rithikmotupalli@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21876073"
+	},
+	"item": [
+		{
+			"name": "Transcribe Audio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": [
+								"",
+								"/C:/Users/rithi/Downloads/Recording (6).mp3"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/transcribe",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"transcribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
